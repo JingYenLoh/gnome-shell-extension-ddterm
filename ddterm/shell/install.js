@@ -17,9 +17,9 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-'use strict';
+import GLib from 'gi://GLib';
+import Gio from 'gi://Gio';
 
-const { GLib, Gio } = imports.gi;
 const ByteArray = imports.byteArray;
 
 function arrays_equal(a, b) {
@@ -99,7 +99,7 @@ function dbus_service_path(basedir) {
     );
 }
 
-var Installer = class Installer {
+export class Installer {
     constructor(src_dir, launcher_path) {
         const configure_vars = {
             LAUNCHER: launcher_path,
@@ -147,6 +147,4 @@ var Installer = class Installer {
         this.desktop_entry.uninstall();
         this.dbus_service.uninstall();
     }
-};
-
-/* exported Installer */
+}

@@ -17,11 +17,10 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-'use strict';
+import GLib from 'gi://GLib';
+import Gio from 'gi://Gio';
 
 const ByteArray = imports.byteArray;
-
-const { GLib, Gio } = imports.gi;
 
 /* We only care about Linux here, because otherwise it won't be systemd */
 const SOL_SOCKET = 1;
@@ -86,4 +85,4 @@ function sd_journal_stream_fd(identifier, priority = LOG_INFO, level_prefix = fa
     }
 }
 
-/* exported sd_journal_stream_fd */
+export { sd_journal_stream_fd };
